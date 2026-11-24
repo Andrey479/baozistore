@@ -1,5 +1,6 @@
 package com.andrey.baozistore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -36,6 +37,7 @@ public class Produto {
     @Column(nullable = false)
     private Integer quantidadeEstoque;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "produto", fetch = FetchType.LAZY)
     private List<Pedido> pedidos = new ArrayList<>();
 }

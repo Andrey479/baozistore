@@ -1,5 +1,6 @@
 package com.andrey.baozistore.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -33,6 +34,7 @@ public class Cliente {
     @Column(nullable = false)
     private LocalDate clienteDesde;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Pedido> pedidos = new ArrayList<>();
 }

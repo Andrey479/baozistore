@@ -29,13 +29,13 @@ public class Pedido {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "cliente_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_pedido_cliente"))
-    @JsonIgnoreProperties("pedidos")
+    @JsonIgnoreProperties({"pedidos", "hibernateLazyInitializer", "handler"})
     private Cliente cliente;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "produto_id", nullable = false,
             foreignKey = @ForeignKey(name = "fk_pedido_produto"))
-    @JsonIgnoreProperties("pedidos")
+    @JsonIgnoreProperties({"pedidos", "hibernateLazyInitializer", "handler"})
     private Produto produto;
 
     @Column(nullable = false)
